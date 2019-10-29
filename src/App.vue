@@ -3,11 +3,11 @@
     <el-container>
       <el-header style="text-align: right; font-size:12px">
         <div>
-          <el-menu  class="el-menu-demo" mode="horizontal">
-            <el-menu-item index="1">Processing Center</el-menu-item>
+          <el-menu  class="el-menu-demo" mode="horizontal" :router="true">
+            <el-menu-item index="1" :route="{name: 'home'}">Home</el-menu-item>
             <el-submenu index="2">
               <template slot="title">Workspace</template>
-              <el-menu-item index="2-1">item one</el-menu-item>
+              <el-menu-item :route="{name: 'page1' }" index="2-1">Page1</el-menu-item>
               <el-menu-item index="2-2">item two</el-menu-item>
               <el-menu-item index="2-3">item three</el-menu-item>
               <el-submenu index="2-4">
@@ -30,13 +30,15 @@
             </li>
           </ul>
           <el-input placeholder="Please input" v-model="input"></el-input>
-          <el-button @click="pushArray()" >Default</el-button>
+          <el-button @click="pushArray">Default</el-button>
        </el-main>
     </el-container>
+       <router-view/>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'app',
   data () {
@@ -53,15 +55,14 @@ export default {
   },
   methods: {
     handleSelect () {
-      console.log('Handle select methed')
+          console.log('Handle select methed')
     },
     pushArray() {
       this.testArray.push(this.input);
+     console.log(this.$route.path)
     }
   },
-  created: {
-    //fetch('https://api.myjson.com/bins/74l63').then(response => response.json()).then(json => { this.products = json.products})
-  }
+  
 }
 </script>
 
