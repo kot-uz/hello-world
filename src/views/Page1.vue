@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-
+<!-- Test 01.12.2019  -->
     <el-input
   placeholder="Please input (Page1) => Page1Component"
   v-model="prop2Data"
